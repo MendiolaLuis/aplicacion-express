@@ -80,7 +80,7 @@ app.get('/tareas', function (req, res) {
             res.status(500).json({ error: 'Error al obtener las tareas' });
         }else {
             res.setHeader('Content-Type', 'application/json');
-            re.status(200).json(rows);
+            res.status(200).json(rows);
         }
     });
 });
