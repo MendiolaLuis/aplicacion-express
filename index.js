@@ -72,6 +72,18 @@ app.get('/', function (req, res) {
     res.end(JSON.stringify({ 'status': 'ok2' }));
 })
 
+// Con este endpoint vamos a obtener todas las tareas:
+app.get('/tareas', function (req, res) {
+    db.all ('SELECT * FROM todos', [], (err, rows) => {
+        if (err) {
+            console.error("Error al obtener las tareas:", err.message);
+            res.status(500).json({ error: 'Error al obtener las tareas' });
+        }else {
+            res.setHeader('Content-Type', 'application/json');
+            re.status(200).json(rows);
+        }
+    });
+});
 
 //Creamos un endpoint de login que recibe los datos como json
 app.post('/login', jsonParser, function (req, res) {
