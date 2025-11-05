@@ -54,14 +54,15 @@ app.post('/insert', jsonParser, function (req, res) {
 
         } else {
           console.log("Insert was successful!");
+          res.status(201).json({ todo});  
         }
     });
 
     stmt.finalize();
     
     //Enviamos de regreso la respuesta
-    res.setHeader('Content-Type', 'application/json');
-    res.status(201).json({ todo });
+    //res.setHeader('Content-Type', 'application/json');
+    //res.status(201).json({ todo });
 })
 
 
