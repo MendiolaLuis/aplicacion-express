@@ -61,7 +61,7 @@ app.post('/insert', jsonParser, function (req, res) {
     
     //Enviamos de regreso la respuesta
     res.setHeader('Content-Type', 'application/json');
-    res.status(201).send();
+    res.status(201).json(todo);
 })
 
 
